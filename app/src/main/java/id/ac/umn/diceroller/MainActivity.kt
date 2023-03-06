@@ -4,23 +4,26 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-//s
+
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val rollbutton: Button = findViewById(R.id.button)
-        rollbutton.setOnClickListener {
-            val resultTextView: TextView = findViewById(R.id.textView)
-            resultTextView.text = "6"
-        }
+        rollbutton.setOnClickListener { rolldice() }
+    }
+    //creates a random number using dice class
+    private fun rolldice() {
+        val dice = Dice(6)
+        val diceRoll: Int = dice.roll()
+        val resultTextView: TextView = findViewById(R.id.textView)
+        resultTextView.text = diceRoll.toString()
     }
 }
-
-class Dice(val numSides:Int)
-{
-    fun roll() : Int
-    {
+//a class that resembles a dice
+class Dice(val numSides: Int) {
+    fun roll(): Int {
         return (1..numSides).random()
     }
 
