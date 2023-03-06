@@ -2,7 +2,7 @@ package id.ac.umn.diceroller
 
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -17,8 +17,8 @@ class MainActivity : AppCompatActivity() {
     private fun rolldice() {
         val dice = Dice(6)
         val diceRoll: Int = dice.roll()
-        val resultTextView: TextView = findViewById(R.id.textView)
-        resultTextView.text = diceRoll.toString()
+        val diceImage: ImageView = findViewById(R.id.imageView2)
+        diceImage.setImageResource(R.drawable.dice_2)
     }
 }
 //a class that resembles a dice
